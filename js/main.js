@@ -1,6 +1,6 @@
 const controle = document.querySelectorAll("[data-controle]")
 const estatisticas = document.querySelectorAll("[data-estatistica]")
-console.log(estatisticas)
+const robotron = document.querySelector("#robotron")
 const pecas = {
     "bracos": {
         "forca": 29,
@@ -35,6 +35,10 @@ const pecas = {
     }
 }
 
+robotron.addEventListener("click", () => {
+    trocaRobotron(robotron.src)
+})
+
 controle.forEach( (elemento) => {
     elemento.addEventListener("click", (evento) => {
         manipulaDados(evento.target.dataset.controle, evento.target.parentNode)
@@ -58,4 +62,25 @@ function atualizaEstatistica(peca) {
         elemento.textContent = parseInt(elemento.textContent) + pecas[peca][elemento.dataset.estatistica]
     })
 
+}
+
+function trocaRobotron(caminhoImagem) {
+    if (caminhoImagem ==='http://127.0.0.1:5500/img/robotron-preto.png') {
+        robotron.setAttribute("src", "img/robotron-rosa.png")
+    }
+    if (caminhoImagem ==='http://127.0.0.1:5500/img/robotron-rosa.png') {
+        robotron.setAttribute("src", "img/robotron-azul.png")
+    }
+    if (caminhoImagem ==='http://127.0.0.1:5500/img/robotron-azul.png') {
+        robotron.setAttribute("src", "img/robotron-branco.png")
+    }
+    if (caminhoImagem ==='http://127.0.0.1:5500/img/robotron-branco.png') {
+        robotron.setAttribute("src", "img/robotron-amarelo.png")
+    }
+    if (caminhoImagem ==='http://127.0.0.1:5500/img/robotron-amarelo.png') {
+        robotron.setAttribute("src", "img/robotron-vermelho.png")
+    }
+    if (caminhoImagem ==='http://127.0.0.1:5500/img/robotron-vermelho.png') {
+        robotron.setAttribute("src", "img/robotron-preto.png")
+    }
 }
